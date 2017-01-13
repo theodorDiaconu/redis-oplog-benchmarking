@@ -1,0 +1,24 @@
+<head>
+    <title>testing</title>
+</head>
+
+<body>
+<h1>Welcome to Redis Oplog!</h1>
+
+{{> hello}}
+</body>
+
+<template name="hello">
+    <h2>Messages</h2>
+    <button>Add Message</button>
+
+    {{#if Template.subscriptionsReady}}
+        <ul>
+            {{#each messages}}
+                <li>{{@index}}. {{_id}} : {{name}} <a href="#" class="js-destroy">X</a></li>
+            {{/each}}
+        </ul>
+    {{else}}
+        Loading...
+    {{/if}}
+</template>
