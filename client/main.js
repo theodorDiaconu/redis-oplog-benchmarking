@@ -3,9 +3,10 @@ import {ReactiveVar} from 'meteor/reactive-var';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
+Template.hello.onCreated(function () {
     this.autorun(() => {
-        this.subscribe('messagesPubWithRedis');
+      //this.subscribe('messages');
+      this.subscribe('messagesPubWithRedis');
     });
 });
 
