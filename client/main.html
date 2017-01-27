@@ -10,12 +10,17 @@
 
 <template name="hello">
     <h2>Messages</h2>
-    <button>Add Message</button>
+    <form>
+      <input type="text" id="title"><br>
+      <textarea id="body" rows="4" cols="50"></textarea><br>
+
+      <button>Add Message</button>
+    </form>
 
     {{#if Template.subscriptionsReady}}
         <ul>
             {{#each messages}}
-                <li>{{@index}}. {{_id}} : {{name}} <a href="#" class="js-destroy">X</a></li>
+                <li>{{@index}}- {{title}} | {{body}} <a href="#" class="js-destroy">X</a></li>
             {{/each}}
         </ul>
     {{else}}

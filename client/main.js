@@ -5,7 +5,7 @@ import './main.html';
 
 Template.hello.onCreated(function helloOnCreated() {
     this.autorun(() => {
-        this.subscribe('messages');
+        this.subscribe('messagesPubWithRedis');
     });
 });
 
@@ -17,9 +17,12 @@ Template.hello.helpers({
 
 Template.hello.events({
     'click button'(event, instance) {
-        Messages.insert({name: `My Message : ${new Date()}`});
+      event.preventDefault();
+
+      Messages.insert({title: instance.$('#title').val(), body:instance.$('#body').val()});
     },
     'click .js-destroy'(event, instance) {
+        console.log(this);
         Messages.remove(this._id);
     },
 });
