@@ -1,0 +1,22 @@
+<template name="benchmarkDirect">
+    <button class="js-start-benchmark">Start Direct Benchmark</button>
+
+    <div>
+        Difference: {{ timelapse }}
+    </div>
+
+    <div>
+        <h4>
+            History Direct
+            {{# if avg }}
+                (Average: {{ avg }}ms)
+            {{/ if }}
+        </h4>
+
+        <ul>
+            {{# each history }}
+                <li>{{ this }}</li>
+            {{/ each }}
+        </ul>
+    </div>
+</template>

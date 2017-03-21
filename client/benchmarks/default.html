@@ -1,0 +1,22 @@
+<template name="benchmarkDefault">
+    <button class="js-start-benchmark">Start Default Benchmark</button>
+
+    <div>
+        Difference: {{ timelapse }}
+    </div>
+
+    <div>
+        <h4>
+            History Default
+            {{# if avg }}
+                (Average: {{ avg }}ms)
+            {{/ if }}
+        </h4>
+
+        <ul>
+            {{# each history }}
+                <li>{{ this }}</li>
+            {{/ each }}
+        </ul>
+    </div>
+</template>

@@ -1,5 +1,5 @@
 import {Meteor} from 'meteor/meteor';
-import { RedisOplog } from 'meteor/cultofcoders:redis-oplog';
+import {RedisOplog} from 'meteor/cultofcoders:redis-oplog';
 
 Messages.remove({});
 
@@ -10,8 +10,9 @@ if (ENABLED_REDIS_OPLOG) {
 Messages.allow({
     insert: () => true,
     remove: () => true,
+    update: () => true,
 })
 
-Meteor.publish('messages', function () {
-  return Messages.find({});
+Meteor.publish('messages', function (filters = {}, options = {}) {
+    return Messages.find(filters, options);
 })

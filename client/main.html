@@ -3,12 +3,12 @@
 </head>
 
 <body>
-<h1>Welcome to Redis Oplog!</h1>
+    <h1>Welcome to Redis Oplog!</h1>
 
-{{> hello}}
+    {{> benchmarks }}
 </body>
 
-<template name="hello">
+<template name="benchmarks">
     <h2>
         Messages Simple Test
         {{# if redisOplog }}
@@ -18,24 +18,16 @@
         {{/ if }}
     </h2>
 
-    <button class="js-start-benchmark">Start Benchmark</button>
-
-    <div>
-        Difference: {{ timelapse }}
-    </div>
-
-    <div>
-        <h2>
-            History
-            {{# if avg }}
-                (Average: {{ avg }}ms)
-            {{/ if }}
-        </h2>
-
-        <ul>
-            {{# each history }}
-                <li>{{ this }}</li>
-            {{/ each }}
-        </ul>
-    </div>
+    <hr>
+    <h1>Benchmarks Default</h1>
+    {{> benchmarkDefault }}
+    <hr>
+    <h1>Benchmarks Direct</h1>
+    {{> benchmarkDirect }}
+    <hr>
+    <h1>Benchmarks Limit-Sort</h1>
+    {{> benchmarkLimitSort }}
 </template>
+
+
+

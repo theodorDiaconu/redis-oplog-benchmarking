@@ -1,0 +1,22 @@
+<template name="benchmarkLimitSort">
+    <button class="js-start-benchmark">Start Limit-Sort Benchmark</button>
+
+    <div>
+        Difference: {{ timelapse }}
+    </div>
+
+    <div>
+        <h4>
+            History Limit-Sort
+            {{# if avg }}
+                (Average: {{ avg }}ms)
+            {{/ if }}
+        </h4>
+
+        <ul>
+            {{# each history }}
+                <li>{{ this }}</li>
+            {{/ each }}
+        </ul>
+    </div>
+</template>
