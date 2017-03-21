@@ -1,0 +1,3 @@
+THROTTLE = 10; // ms
+RUN_FOR = 5; // s
+ENABLED_REDIS_OPLOG = false;

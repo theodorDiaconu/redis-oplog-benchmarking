@@ -9,21 +9,33 @@
 </body>
 
 <template name="hello">
-    <h2>Messages</h2>
-    <form>
-      <input type="text" id="title"><br>
-      <textarea id="body" rows="4" cols="50"></textarea><br>
+    <h2>
+        Messages Simple Test
+        {{# if redisOplog }}
+            - REDIS OPLOG
+        {{ else }}
+            - MONGODB OPLOG
+        {{/ if }}
+    </h2>
 
-      <button>Add Message</button>
-    </form>
+    <button class="js-start-benchmark">Start Benchmark</button>
 
-    {{#if Template.subscriptionsReady}}
+    <div>
+        Difference: {{ timelapse }}
+    </div>
+
+    <div>
+        <h2>
+            History
+            {{# if avg }}
+                (Average: {{ avg }}ms)
+            {{/ if }}
+        </h2>
+
         <ul>
-            {{#each messages}}
-                <li>{{@index}}- {{title}} | {{body}} <a href="#" class="js-destroy">X</a></li>
-            {{/each}}
+            {{# each history }}
+                <li>{{ this }}</li>
+            {{/ each }}
         </ul>
-    {{else}}
-        Loading...
-    {{/if}}
+    </div>
 </template>
